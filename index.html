@@ -95,5 +95,36 @@
   </main>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2635018944245510"
      crossorigin="anonymous"></script>
+<script>
+async function fetchSamsungNews() {
+    const apiKey = "YOUR_API_KEY"; 
+    const url = `https://newsapi.org/v2/everything?q=samsung&language=en&sortBy=publishedAt&apiKey=${apiKey}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        let newsContainer = document.getElementById("news");
+        newsContainer.innerHTML = "";
+
+        data.articles.forEach(article => {
+            let newsItem = `
+                <div>
+                    <h3>${article.title}</h3>
+                    <img src="${article.urlToImage}" alt="News Image" width="300">
+                    <p>${article.description}</p>
+                    <a href="${article.url}" target="_blank">Read More</a>
+                </div>
+                <hr>
+            `;
+            newsContainer.innerHTML += newsItem;
+        });
+    } catch (error) {
+        console.error("Error fetching news:", error);
+    }
+}
+
+fetchSamsungNews();
+</script>
 </body>
 </html>
