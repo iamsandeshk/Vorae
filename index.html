@@ -93,11 +93,9 @@
         <!-- Fetched news will appear here -->
     </div>
   </main>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2635018944245510"
-     crossorigin="anonymous"></script>
-<script>
+<script 
 async function fetchSamsungNews() {
-    const apiKey = "YOUR_API_KEY"; 
+    const apiKey = "675cc408e77a430dac8137f71942ace1";  // Your API Key
     const url = `https://newsapi.org/v2/everything?q=samsung&language=en&sortBy=publishedAt&apiKey=${apiKey}`;
 
     try {
@@ -109,10 +107,10 @@ async function fetchSamsungNews() {
 
         data.articles.forEach(article => {
             let newsItem = `
-                <div>
+                <div style="border:1px solid #ddd; padding: 10px; margin-bottom: 10px;">
                     <h3>${article.title}</h3>
-                    <img src="${article.urlToImage}" alt="News Image" width="300">
-                    <p>${article.description}</p>
+                    <img src="${article.urlToImage || 'https://via.placeholder.com/300'}" alt="News Image" width="300">
+                    <p>${article.description || 'No description available.'}</p>
                     <a href="${article.url}" target="_blank">Read More</a>
                 </div>
                 <hr>
