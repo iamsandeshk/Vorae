@@ -1,0 +1,381 @@
+<!-- AI Features Deep Dive (ai.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-2635018944245510">
+  <title>AI Features Deep Dive - SAMVORAE</title>
+  <style>
+    @font-face {
+      font-family: "samsung";
+      src: url("fonts/SamsungOne-700.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "samsung-bold";
+      src: url("fonts/SamsungSharpSans-Bold.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "samsung-small";
+      src: url("fonts/SamsungOne-400.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "samsungSharp";
+      src: url("fonts/samsungsharpsans.otf") format("truetype");
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "samsung-small", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      margin-left: 60px;
+      margin-right: 64px;
+    }
+
+    .logo-link {
+      text-decoration: none;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-family: 'samsung-bold', sans-serif;
+      font-size: 32px;
+      color: #000;
+      letter-spacing: 1px;
+    }
+
+    #navbar {
+      width: 100%;
+      height: 80px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    main {
+      margin-top: 80px;
+      padding: 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .headline-section {
+      margin-bottom: 40px;
+    }
+
+    .headline-title {
+      font-family: 'samsung-bold', sans-serif;
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .headline-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 15px;
+      font-family: 'samsung-small', sans-serif;
+      color: #666;
+    }
+
+    .headline-date {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .headline-content {
+      font-family: 'samsung-small', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .headline-image {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      font-family: 'samsung-small', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        margin-left: 20px;
+      }
+
+      main {
+        padding: 15px;
+      }
+
+      .headline-title {
+        font-size: 28px;
+      }
+
+      .headline-content {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 24px;
+      }
+
+      .headline-title {
+        font-size: 24px;
+      }
+
+      .headline-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <nav id="navbar">
+    <div class="logo">
+      <a href="index.html" class="logo-link">
+        <div class="logo-container">
+          <span class="logo-text">SAM-VORAE</span>
+        </div>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="headline-section">
+      <h1 class="headline-title">AI Features Deep Dive: One UI 7's Intelligence Revolution</h1>
+      
+      <div class="headline-meta">
+        <div class="headline-date">
+          <i class="far fa-calendar"></i>
+          <span>February 23, 2025</span>
+        </div>
+        <div class="tags">
+          <span class="tag">AI Features</span>
+          <span class="tag">One UI 7</span>
+          <span class="tag">Galaxy AI</span>
+        </div>
+      </div>
+
+      <img src="Assets/ai-features.jpg" alt="AI Features in One UI 7" class="headline-image">
+
+      <p class="headline-content">
+        One UI 7 marks a significant leap forward in Samsung's AI capabilities, introducing a suite of intelligent features that promise to transform how users interact with their Galaxy devices. The new update brings on-device AI processing that enhances everything from daily tasks to creative endeavors.
+      </p>
+
+      <p class="headline-content">
+        The centerpiece of One UI 7's AI features is the enhanced Galaxy AI assistant, which now offers more contextual awareness and deeper integration with system apps. The assistant can now understand complex multi-step commands, remember conversation context, and provide more personalized responses based on your usage patterns.
+      </p>
+
+      <p class="headline-content">
+        Key AI enhancements include:
+        <br><br>
+        • Smart Compose 2.0: Advanced text predictions across all Samsung apps
+        <br>
+        • AI-powered photo editing: Advanced object removal, sky replacement, and portrait effects
+        <br>
+        • Intelligent App Predictions: Smarter app suggestions based on time, location, and routine
+        <br>
+        • Advanced Voice Recognition: Improved accuracy and dialect understanding
+        <br>
+        • Real-time Translation: Support for more languages and offline capabilities
+      </p>
+
+      <p class="headline-content">
+        Samsung has also implemented new AI-driven privacy features, including intelligent permission management and enhanced data protection. The system can now detect and alert users about potentially suspicious app behaviors and recommend optimal privacy settings based on usage patterns.
+      </p>
+    </article>
+  </main>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2635018944245510" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!-- Visual Overhaul (vo.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Same head content and styles as above -->
+</head>
+<body>
+  <nav id="navbar">
+    <div class="logo">
+      <a href="index.html" class="logo-link">
+        <div class="logo-container">
+          <span class="logo-text">SAM-VORAE</span>
+        </div>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="headline-section">
+      <h1 class="headline-title">Visual Overhaul: One UI 7's Fresh New Look</h1>
+      
+      <div class="headline-meta">
+        <div class="headline-date">
+          <i class="far fa-calendar"></i>
+          <span>February 23, 2025</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Design</span>
+          <span class="tag">One UI 7</span>
+          <span class="tag">UI/UX</span>
+        </div>
+      </div>
+
+      <img src="Assets/visual-overhaul.jpg" alt="One UI 7 Design Changes" class="headline-image">
+
+      <p class="headline-content">
+        One UI 7 introduces a significant visual refresh, building upon Samsung's design philosophy while introducing modern elements and improved usability. The update brings subtle yet impactful changes to the interface, making it more intuitive and visually appealing.
+      </p>
+
+      <p class="headline-content">
+        The most notable design changes include:
+        <br><br>
+        • Refined Typography: New dynamic font scaling and improved readability
+        <br>
+        • Enhanced Motion Design: Smoother transitions and more natural animations
+        <br>
+        • Updated Color Palette: New accent colors and improved dark mode
+        <br>
+        • Redesigned Icons: More consistent and modern icon design language
+        <br>
+        • Improved Layout: Better use of space and enhanced one-handed usage
+      </p>
+
+      <p class="headline-content">
+        The Quick Settings panel has been completely redesigned, featuring larger, more accessible toggles and improved organization options. The notification shade now includes expanded media controls and smart device shortcuts, making it easier to control your connected ecosystem.
+      </p>
+
+      <p class="headline-content">
+        Samsung has also introduced new customization options, allowing users to personalize their experience further. This includes new widget styles, enhanced theme support, and more granular control over system animations and transitions.
+      </p>
+    </article>
+  </main>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2635018944245510" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!-- Update Schedule (update.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Same head content and styles as above -->
+</head>
+<body>
+  <nav id="navbar">
+    <div class="logo">
+      <a href="index.html" class="logo-link">
+        <div class="logo-container">
+          <span class="logo-text">SAM-VORAE</span>
+        </div>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="headline-section">
+      <h1 class="headline-title">One UI 7 Update Schedule: When Will Your Device Get It?</h1>
+      
+      <div class="headline-meta">
+        <div class="headline-date">
+          <i class="far fa-calendar"></i>
+          <span>February 23, 2025</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Update Schedule</span>
+          <span class="tag">One UI 7</span>
+          <span class="tag">Galaxy Devices</span>
+        </div>
+      </div>
+
+      <img src="Assets/update-schedule.jpg" alt="One UI 7 Update Timeline" class="headline-image">
+
+      <p class="headline-content">
+        Samsung has outlined its comprehensive update schedule for One UI 7, detailing which devices will receive the update and when. The rollout will be phased to ensure stability and optimize the experience for each device.
+      </p>
+
+      <p class="headline-content">
+        Phase 1 (March 2025):
+        <br><br>
+        • Galaxy S24 Series (S24, S24+, S24 Ultra)
+        <br>
+        • Galaxy Z Fold5
+        <br>
+        • Galaxy Z Flip5
+      </p>
+
+      <p class="headline-content">
+        Phase 2 (April 2025):
+        <br><br>
+        • Galaxy S23 Series (S23, S23+, S23 Ultra)
+        <br>
+        • Galaxy Z Fold4
+        <br>
+        • Galaxy Z Flip4
+        <br>
+        • Galaxy Tab S9 Series
+      </p>
+
+      <p class="headline-content">
+        Phase 3 (May-June 2025):
+        <br><br>
+        • Galaxy S22 Series
+        <br>
+        • Galaxy Z Fold3
+        <br>
+        • Galaxy Z Flip3
+        <br>
+        • Galaxy A54, A53
+        <br>
+        • Galaxy Tab S8 Series
+      </p>
+
+      <p class="headline-content">
+        The exact timing may vary by region and carrier. Users can check their device's eligibility and expected update timeline through the Samsung Members app.
+      </p>
+    </article>
+  </main>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2635018944245510" crossorigin="anonymous"></script>
+</body>
+</html>
