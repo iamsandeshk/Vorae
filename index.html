@@ -6,8 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vorae - Tech News</title>
   <style>
-    /* Original font faces remain the same */
-    
+    @font-face {
+      font-family: "samsung";
+      src: url("fonts/SamsungOne-700.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "samsung-bold";
+      src: url("fonts/SamsungSharpSans-Bold.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "samsung-small";
+      src: url("fonts/SamsungOne-400.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "samsungSharp";
+      src: url("fonts/samsungsharpsans.otf") format("truetype");
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -17,11 +32,11 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: "SamsungOne-400";
+      font-family: "samsung-small", sans-serif;
       overflow-x: hidden;
     }
 
-    /* Enhanced Logo Styles */
+    /* Logo Styles */
     .logo {
       display: flex;
       align-items: center;
@@ -36,24 +51,16 @@
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 8px;
     }
 
     .logo-text {
-      font-family: 'samsung-bold';
+      font-family: 'samsung-bold', sans-serif;
       font-size: 32px;
       color: #000;
       letter-spacing: 1px;
     }
 
-    .logo-dot {
-      color: #1a73e8;
-      font-size: 40px;
-      line-height: 0;
-      margin-left: -4px;
-    }
-
-    /* Improved Navigation */
+    /* Navbar */
     #navbar {
       width: 100%;
       height: 80px;
@@ -68,76 +75,64 @@
       justify-content: space-between;
     }
 
-    .nav-items {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex: 1;
-    }
-
-    .list {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .nav-button {
-      padding: 8px 16px;
-      border-radius: 20px;
-      transition: all 0.3s ease;
-      font-size: 15px;
-      font-weight: 500;
-    }
-
-    .nav-button:hover {
-      background-color: #1a73e8;
-      color: white;
-    }
-
-    /* Main Content Adjustments */
+    /* Main Content */
     main {
-      margin-top: 80px; /* Account for fixed navbar */
+      margin-top: 80px;
+      padding: 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .hero-section {
-      position: relative;
-      height: 80vh;
-      width: 100%;
-      overflow: hidden;
+    .headline-section {
+      margin-bottom: 40px;
     }
 
-    .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      z-index: 2;
-    }
-
-    .hero-title {
-      font-size: 48px;
+    .headline-title {
+      font-family: 'samsung-bold', sans-serif;
+      font-size: 36px;
       margin-bottom: 20px;
-      font-family: 'samsung-bold';
+      color: #000;
     }
 
-    .hero-subtitle {
-      font-size: 20px;
+    .headline-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 15px;
+      font-family: 'samsung-small', sans-serif;
+      color: #666;
+    }
+
+    .headline-date {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .headline-content {
+      font-family: 'samsung-small', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
       margin-bottom: 30px;
+      color: #333;
     }
 
-    /* News Grid */
-    .news-grid {
+    .headline-image {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 24px;
-      padding: 24px;
-      margin: 0 auto;
-      max-width: 1440px;
+      margin-top: 40px;
     }
 
-    .news-card {
+    .feature-card {
       background: white;
       border-radius: 12px;
       overflow: hidden;
@@ -145,102 +140,83 @@
       transition: transform 0.3s ease;
     }
 
-    .news-card:hover {
+    .feature-card:hover {
       transform: translateY(-4px);
+    }
+
+    .feature-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .feature-content {
+      padding: 20px;
+    }
+
+    .feature-title {
+      font-family: 'samsung-bold', sans-serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .feature-text {
+      font-family: 'samsung-small', sans-serif;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      font-family: 'samsung-small', sans-serif;
     }
 
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
       .logo {
         margin-left: 20px;
-        margin-right: 20px;
       }
 
+      main {
+        padding: 15px;
+      }
+
+      .headline-title {
+        font-size: 28px;
+      }
+
+      .headline-content {
+        font-size: 16px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
       .logo-text {
         font-size: 24px;
       }
 
-      .nav-items {
-        display: none; /* Hide regular nav on mobile */
+      .headline-title {
+        font-size: 24px;
       }
 
-      .mobile-menu-button {
-        display: block;
-        margin-right: 20px;
-      }
-
-      .news-grid {
-        grid-template-columns: 1fr;
-        padding: 16px;
-      }
-
-      .hero-title {
-        font-size: 32px;
-      }
-
-      .hero-subtitle {
-        font-size: 16px;
-      }
-    }
-
-    /* Mobile Menu */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 80px;
-      left: 0;
-      right: 0;
-      background: white;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .mobile-menu.active {
-      display: block;
-    }
-
-    .mobile-menu-button {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    /* Search Bar Improvements */
-    .search-container {
-      position: relative;
-      max-width: 600px;
-      margin: 20px auto;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 12px 48px;
-      border: 2px solid #1a73e8;
-      border-radius: 24px;
-      font-size: 16px;
-      transition: all 0.3s ease;
-    }
-
-    .search-input:focus {
-      box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
-      outline: none;
-    }
-
-    /* Additional Responsive Breakpoints */
-    @media (max-width: 480px) {
-      .hero-section {
-        height: 60vh;
-      }
-      
-      .logo-text {
-        font-size: 20px;
+      .headline-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
 </head>
 
 <body>
@@ -249,102 +225,78 @@
       <a href="index.html" class="logo-link">
         <div class="logo-container">
           <span class="logo-text">VORAE</span>
-          <span class="logo-dot">.</span>
         </div>
       </a>
     </div>
-
-    <div class="nav-items">
-      <ul class="list">
-        <li><button class="nav-button">Latest</button></li>
-        <li><button class="nav-button">Samsung</button></li>
-        <li><button class="nav-button">Apple</button></li>
-        <li><button class="nav-button">Android</button></li>
-        <li><button class="nav-button">Reviews</button></li>
-        <li><button class="nav-button">AI News</button></li>
-      </ul>
-
-      <div class="nav-right">
-        <button class="nav-button">Sign In</button>
-      </div>
-    </div>
-
-    <button class="mobile-menu-button">
-      <i class="fas fa-bars"></i>
-    </button>
   </nav>
 
-  <div class="mobile-menu">
-    <ul>
-      <li><a href="#">Latest</a></li>
-      <li><a href="#">Samsung</a></li>
-      <li><a href="#">Apple</a></li>
-      <li><a href="#">Android</a></li>
-      <li><a href="#">Reviews</a></li>
-      <li><a href="#">AI News</a></li>
-      <li><a href="#">Sign In</a></li>
-    </ul>
-  </div>
-
   <main>
-    <section class="hero-section">
-      <div class="hero-content">
-        <h1 class="hero-title">One UI 7: The Future of Samsung</h1>
-        <p class="hero-subtitle">Experience the next evolution of mobile interface</p>
-        <button class="nav-button">Read More</button>
+    <article class="headline-section">
+      <h1 class="headline-title">One UI 7 Stable Coming Next Month: Everything You Need to Know</h1>
+      
+      <div class="headline-meta">
+        <div class="headline-date">
+          <i class="far fa-calendar"></i>
+          <span>February 23, 2025</span>
+        </div>
+        <div class="tags">
+          <span class="tag">One UI 7</span>
+          <span class="tag">Samsung</span>
+          <span class="tag">Software Update</span>
+        </div>
       </div>
-      <video class="video" src="video/oneui7-preview.mp4" autoplay muted loop></video>
-    </section>
 
-    <div class="search-container">
-      <input type="text" class="search-input" placeholder="Search tech news...">
-      <i class="fas fa-search" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%);"></i>
+      <p class="headline-content">
+        Samsung has officially announced that the stable version of One UI 7 will be rolling out next month, bringing a host of new features and improvements to Galaxy devices. The update, which has been in beta testing since late 2024, introduces significant AI enhancements, improved privacy features, and a refreshed design language.
+      </p>
+
+      <img src="/api/placeholder/1200/600" alt="One UI 7 Preview" class="headline-image">
+
+      <p class="headline-content">
+        Key features of the One UI 7 update include:
+        <br><br>
+        • Enhanced AI Assistant: More contextual awareness and deeper integration with system apps
+        <br>
+        • Redesigned Quick Settings: New layout with improved accessibility and customization options
+        <br>
+        • Privacy Dashboard 2.0: Comprehensive overview of app permissions and data access
+        <br>
+        • Advanced Camera Features: New AI-powered photo editing tools and improved night mode
+        <br>
+        • Battery Management: Smarter battery optimization with personalized usage patterns
+      </p>
+
+      <p class="headline-content">
+        The rollout will begin with the Galaxy S24 series, followed by the Z Fold5 and Z Flip5 devices. Other eligible devices will receive the update throughout the following months.
+      </p>
+    </article>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <img src="/api/placeholder/400/200" alt="AI Features" class="feature-image">
+        <div class="feature-content">
+          <h3 class="feature-title">AI Features Deep Dive</h3>
+          <p class="feature-text">Exploring the new artificial intelligence capabilities in One UI 7 and how they enhance daily usage.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <img src="/api/placeholder/400/200" alt="Design Changes" class="feature-image">
+        <div class="feature-content">
+          <h3 class="feature-title">Visual Overhaul</h3>
+          <p class="feature-text">Detailed look at the design changes and improved animations in the latest update.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <img src="/api/placeholder/400/200" alt="Eligible Devices" class="feature-image">
+        <div class="feature-content">
+          <h3 class="feature-title">Update Schedule</h3>
+          <p class="feature-text">Complete list of eligible devices and expected rollout timeline for One UI 7.</p>
+        </div>
+      </div>
     </div>
-
-    <section class="news-grid">
-      <!-- Featured News Cards -->
-      <article class="news-card">
-        <img src="images/oneui7-features.jpg" alt="One UI 7 Features">
-        <div class="card-content">
-          <h3>Complete Guide to One UI 7</h3>
-          <p>Exploring all the new features and improvements</p>
-        </div>
-      </article>
-
-      <article class="news-card">
-        <img src="images/galaxy-ai.jpg" alt="Galaxy AI">
-        <div class="card-content">
-          <h3>Galaxy AI Evolution</h3>
-          <p>How Samsung's AI features are changing the game</p>
-        </div>
-      </article>
-
-      <!-- Add more news cards as needed -->
-    </section>
   </main>
 
-  <script>
-    // Mobile menu toggle
-    const menuButton = document.querySelector('.mobile-menu-button');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    
-    menuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-    });
-
-    // Navbar scroll behavior
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      const currentScroll = window.pageYOffset;
-      
-      if (currentScroll > lastScroll) {
-        navbar.style.transform = 'translateY(-100%)';
-      } else {
-        navbar.style.transform = 'translateY(0)';
-      }
-      lastScroll = currentScroll;
-    });
-  </script>
 </body>
 </html>
